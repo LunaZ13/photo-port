@@ -1,6 +1,7 @@
 import React from "react";
-import {capitalizeFirstLetter} from '../../assets/utils/helpers';
 import PhotoList from "../PhotoList";
+import {capitalizeFirstLetter} from '../../assets/utils/helpers';
+
 
 
 function Gallery({ currentCategory }) {
@@ -15,3 +16,4 @@ function Gallery({ currentCategory }) {
   );
 }
 export default Gallery;
+
