@@ -2,14 +2,19 @@ import React, { useState } from "react";
 import { validateEmail } from "../../assets/utils/helpers";
 
 function ContactForm() {
+  const [formState, setFormState] = useState({ name: '', email: '', message: '' });
+
   const { name, email, message } = formState;
   const [errorMessage, setErrorMessage] = useState('');
-  const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
 
+const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormState({ [e.target]: e.target.value });
+    console.log(formState);
+  }
+
+
+const handleChange = (e) => {
   if (e.target.name === 'email') {
     const isValid = validateEmail(e.target.value);
     console.log(isValid);
@@ -19,25 +24,15 @@ function ContactForm() {
       } else {
         setErrorMessage('');
       }
-  }  else {
+    }  else {
       if (!e.target.value.length) {
           setErrorMessage(`${e.target.name} is required`);
       } else {
           setErrorMessage('');
       }
   }
-
-  function handleChange(e) {
-    setFormState({ ...formState, [e.target.name]: e.target.value });
-    if (!errorMessage) {
-        setFormState({...formState, [e.target.name]: e.target.name });
-    }
-  }
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log(formState);
-  }
-
+};
+  
   return (
     <section>
       <h1>Contact Me</h1>
@@ -69,6 +64,11 @@ function ContactForm() {
             onBlur={handleChange}
           ></textarea>
         </div>
+        {errorMessage && (
+        <div>
+            <p className="error-text">{errorMessage}</p>
+        </div>
+        )}
         <button type="submit">Submit</button>
       </form>
     </section>
