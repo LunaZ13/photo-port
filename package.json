@@ -1,6 +1,6 @@
 {
-  "name": "photo-port",
   "homepage": "http://LunaZ13.github.io/photo-port",
+  "name": "photo-port",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

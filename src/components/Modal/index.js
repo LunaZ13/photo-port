@@ -1,11 +1,7 @@
 import React from "react";
 
-function Modal({ onClose, currentPhoto }) {
+const Modal = ({ onClose, currentPhoto }) => {
     const {name, category, description, index} = currentPhoto;
-
-    {isModalOpen && (
-        <Modal currentPhoto={currentPhoto} onClose={toggleModal} />
-      )}
 
     return (
         // JSX
